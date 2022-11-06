@@ -1,0 +1,38 @@
+.notFound {
+	padding-top: 70px;
+	padding-bottom: 70px;
+	text-align: center;
+	& > img {
+		padding-bottom: 50px;
+		width: 500px;
+		height: auto;
+	}
+	h3 {
+		padding-bottom: 20px;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 36px;
+		color: #474747;
+	}
+	p {
+		padding-bottom: 40px;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 24px;
+		text-align: center;
+		color: #474747;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		h4 {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 32px;
+			text-align: center;
+			color: #474747;
+		}
+	}
+}
