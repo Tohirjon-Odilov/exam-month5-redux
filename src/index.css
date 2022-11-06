@@ -61,6 +61,10 @@
 	text-decoration: none;
 }
 
+a {
+	color: white;
+}
+
 body {
 	margin: 0;
 	font-family: 'Roboto Mono', sans-serif;
