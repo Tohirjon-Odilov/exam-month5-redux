@@ -17,6 +17,6 @@ export const useLogin = () => {
       .then((result) => result.json())
       .then((data) => setAuth(data));
   };
-  console.log(connectApi, auth)
+  // console.log(connectApi, auth)
   return [auth, connectApi];
 };

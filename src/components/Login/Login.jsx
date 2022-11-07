@@ -4,13 +4,15 @@ import logo from './../../assets/img/circle b.svg'
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
 
+//      eve.holt@reqres.in
+//      cityslicka
+
 function Login() {
 
   const storage = window.localStorage;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [auth, setEmailPassword] = useLogin();
 
   const [loading, setLoading] = useState(false);
@@ -26,38 +28,47 @@ function Login() {
   };
 
   useEffect(() => {
-    const { status, message, token } = auth;
+    const { token } = auth
+    console.log(auth);
+    storage.setItem("token", token);
+    token && navigate('/')
+    // navigate("/");
+    setEmail('')
+    setPassword('')
+  }, [auth, navigate, storage])
 
-    if (status === 200) {
-      setLoading(false);
+  // useEffect(() => {
+  //   const { status, message, token } = auth;
 
-      if (error.state) {
-        setError({
-          state: false,
-          msg: "",
-        });
-      }
+  //   if (status === 200) {
+  //     setLoading(false);
 
-      storage.setItem("token", token);
-      navigate("/profile");
-    }
+  //     if (error.state) {
+  //       setError({
+  //         state: false,
+  //         msg: "",
+  //       });
+  //     }
 
-    if (status === 404) {
-      setLoading(false);
-      setError({
-        state: true,
-        msg: message,
-      });
-      console.log('staus');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [auth]);
+
+  //   }
+
+  //   if (status === 404) {
+  //     setLoading(false);
+  //     setError({
+  //       state: true,
+  //       msg: message,
+  //     });
+  //     console.log('staus');
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [auth]);
 
   return (
     <section className="site-login">
       <div className="container">
-        {loading && <h3>Loading...</h3>}
-        {error.state && <h3 className={"err"}>Error: {error.msg}</h3>}
+        {/* {loading && <h3>Loading...</h3>} */}
+        {/* {error.state && <h3 className={"err"}>Error: {error.msg}</h3>} */}
         <header className="login_header">
           <img src={logo} alt="Bobur logo" width={58} height={58} />
           <strong>BoburBlog</strong>
