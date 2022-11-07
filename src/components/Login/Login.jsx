@@ -6,6 +6,7 @@ import { useLogin } from "../../hooks/useLogin";
 
 //      eve.holt@reqres.in
 //      cityslicka
+// https://reqres.in/api/login
 
 function Login() {
 
@@ -13,13 +14,11 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setEmailPassword] = useLogin();
-
+  const [auth, setEmailPassword, error] = useLogin();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({
-    state: false,
-    msg: "",
-  });
+  // console.log(error.response.data.error);
+  // const { message } = error
+  // console.log(response.data.error);
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -27,12 +26,13 @@ function Login() {
     setLoading(true);
   };
 
+  console.log(error);
+
   useEffect(() => {
     const { token } = auth
     console.log(auth);
     storage.setItem("token", token);
     token && navigate('/')
-    // navigate("/");
     setEmail('')
     setPassword('')
   }, [auth, navigate, storage])
@@ -67,8 +67,8 @@ function Login() {
   return (
     <section className="site-login">
       <div className="container">
-        {/* {loading && <h3>Loading...</h3>} */}
-        {/* {error.state && <h3 className={"err"}>Error: {error.msg}</h3>} */}
+        {loading && <h3>Loading...</h3>}
+        {error.message && <h3 className={"err"}>Error: {error.message}</h3>}
         <header className="login_header">
           <img src={logo} alt="Bobur logo" width={58} height={58} />
           <strong>BoburBlog</strong>
@@ -82,7 +82,6 @@ function Login() {
             <input
               type="email"
               placeholder="login"
-              // value={"eve.holt@reqres.in"}
               value={email}
               onChange={(evt) => setEmail(evt.target.value)}
               required
@@ -90,7 +89,6 @@ function Login() {
             <input
               type="password"
               placeholder="Password"
-              // value={"cityslicka"}
               value={password}
               onChange={(evt) => setPassword(evt.target.value)}
               required

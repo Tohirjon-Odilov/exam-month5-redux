@@ -1,22 +1,24 @@
+import axios from "axios";
 import { useState } from "react";
 
 export const useLogin = () => {
   const [auth, setAuth] = useState({});
+  const [error, setError] = useState({});
 
-  const connectApi = async (email, password) => {
-    await fetch("https://reqres.in/api/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
+
+  const connectApi = (email, password) => {
+    axios.post('https://reqres.in/api/login', {
+      email,
+      password
     })
-      .then((result) => result.json())
-      .then((data) => setAuth(data));
+      .then((result) => setAuth(result.data))
+      .catch(err => {
+        // console.log(err.response.status, err.response.statusText)
+        // return err
+        setError(err)
+      })
   };
-  // console.log(connectApi, auth)
-  return [auth, connectApi];
+  return [auth, connectApi, error];
 };
+
+
