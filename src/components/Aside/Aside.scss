@@ -1,6 +1,7 @@
 .aside {
-	padding-top: 80px;
-	width: 328px;
+	margin-right: 55px;
+	max-width: 328px;
+	width: 100%;
 	h4 {
 		padding-bottom: 36px;
 		font-weight: 400;
@@ -35,5 +36,22 @@
 	.aside__img-wrapper {
 		display: flex;
 		gap: 24px;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.aside {
+		display: none;
+		h4 {
+			font-size: 20px;
+		}
+		p {
+			font-size: 14px;
+		}
+		.aside__explore {
+			span {
+				font-size: 11px;
+			}
+		}
 	}
 }

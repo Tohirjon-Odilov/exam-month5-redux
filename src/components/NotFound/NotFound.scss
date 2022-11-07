@@ -4,7 +4,8 @@
 	text-align: center;
 	& > img {
 		padding-bottom: 50px;
-		width: 500px;
+		max-width: 500px;
+		width: 100%;
 		height: auto;
 	}
 	h3 {
@@ -15,6 +16,8 @@
 		color: #474747;
 	}
 	p {
+		margin: 0 auto;
+		max-width: 607px;
 		padding-bottom: 40px;
 		font-weight: 300;
 		font-size: 16px;
@@ -33,6 +36,22 @@
 			line-height: 32px;
 			text-align: center;
 			color: #474747;
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.notFound {
+		h3 {
+			font-size: 18px;
+		}
+		p {
+			font-size: 13px;
+		}
+		a {
+			h4 {
+				font-size: 12px;
+			}
 		}
 	}
 }

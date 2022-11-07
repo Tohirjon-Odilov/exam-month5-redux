@@ -1,0 +1,75 @@
+.allcategory-section {
+	padding: 80px 0px 50px 0;
+	.allcategory {
+		display: flex;
+	}
+	.allcategory__posts {
+		max-width: 736px;
+		width: 100%;
+	}
+	.posts__title {
+		padding-bottom: 58px;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 36px;
+		color: #474747;
+	}
+	.posts__wrapper {
+		padding-bottom: 15px;
+		border-bottom: 1px solid #dfdfdf;
+	}
+	.date__wrapper {
+		padding-bottom: 20px;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		time {
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 16px;
+			color: #777777;
+		}
+		span {
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 16px;
+			text-align: right;
+			color: #777777;
+		}
+	}
+	.post__title {
+		max-width: 544px;
+		width: 100%;
+		p {
+			padding-bottom: 20px;
+			font-weight: 400;
+			font-size: 19px;
+			line-height: 28px;
+			color: #474747;
+		}
+	}
+	.post__time {
+		margin-left: 30px;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		color: #777777;
+		position: relative;
+		z-index: -1;
+		&::before {
+			content: url('../../assets/img/clock.svg');
+			position: absolute;
+			left: -30px;
+			top: -1px;
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.allcategory-section {
+		padding-top: 50px;
+		.posts__title {
+			padding-bottom: 40px;
+		}
+	}
+}
