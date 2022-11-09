@@ -46,8 +46,13 @@
 			font-weight: 400;
 			font-size: 16px;
 			line-height: 21px;
-			text-transform: uppercase;
+			text-transform: capitalize;
 			color: #9a9a9a;
+		}
+		li {
+			&:last-child {
+				display: none !important;
+			}
 		}
 	}
 }

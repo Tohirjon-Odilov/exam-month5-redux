@@ -3,17 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const generalDataSlice = createSlice({
   name: 'generalDataSlice',
   initialState: {
-    users: []
+    categories: [],
+    allDatas: [],
+    cates: 'tenetur'
   },
   reducers: {
     category: (state, action) => {
-      state.users = action.payload
+      state.categories = action.payload
     },
-    allPosts: (state, action) => {
-      state.users = action.payload
+    allData: (state, action) => {
+      state.allDatas = action.payload
+    },
+    cate: (state, action) => {
+      state.cates = action.payload
     }
   }
 })
 
-export const { category, allPosts } = generalDataSlice.actions
+export const { category, allData, cate } = generalDataSlice.actions
 export default generalDataSlice.reducer

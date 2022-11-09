@@ -1,9 +1,9 @@
-.allcategory-section {
+.data-section {
 	padding: 80px 0px 50px 0;
-	.allcategory {
+	.data {
 		display: flex;
 	}
-	.allcategory__posts {
+	.data__posts {
 		max-width: 736px;
 		width: 100%;
 	}
@@ -16,6 +16,7 @@
 	}
 	.posts__wrapper {
 		padding-bottom: 15px;
+		margin-bottom: 46px;
 		border-bottom: 1px solid #dfdfdf;
 	}
 	.date__wrapper {
@@ -40,11 +41,18 @@
 	.post__title {
 		max-width: 544px;
 		width: 100%;
-		p {
-			padding-bottom: 20px;
+		h4 {
+			padding-bottom: 15px;
 			font-weight: 400;
 			font-size: 19px;
 			line-height: 28px;
+			color: #474747;
+		}
+		p {
+			padding-bottom: 20px;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 32px;
 			color: #474747;
 		}
 	}
@@ -63,10 +71,49 @@
 			top: -1px;
 		}
 	}
+	.content__pagenation {
+		// height: 32px;
+		display: flex;
+		justify-content: flex-end;
+		text-align: center;
+		padding: 3px 0px;
+		margin-bottom: 130px;
+
+		p {
+			display: flex;
+			flex-direction: row;
+			text-align: center;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+
+			span {
+				cursor: pointer;
+				&:hover {
+					color: #ffba9d;
+				}
+			}
+
+			&::before {
+				content: '<';
+				display: block;
+				background-color: #f4f4f4;
+				padding: 0px 10px 3px;
+				cursor: pointer;
+			}
+			&::after {
+				content: '>';
+				display: block;
+				background-color: #f4f4f4;
+				padding: 0px 10px 3px;
+				cursor: pointer;
+			}
+		}
+	}
 }
 
 @media only screen and (max-width: 500px) {
-	.allcategory-section {
+	.allCategoryStyles-section {
 		padding-top: 50px;
 		.posts__title {
 			padding-bottom: 40px;

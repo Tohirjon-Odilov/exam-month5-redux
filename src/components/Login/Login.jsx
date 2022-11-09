@@ -9,7 +9,6 @@ import { useLogin } from "../../hooks/useLogin";
 // https://reqres.in/api/login
 
 function Login() {
-
   const storage = window.localStorage;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -17,6 +16,7 @@ function Login() {
   const [auth, setEmailPassword, error] = useLogin();
   const [loading, setLoading] = useState(false);
   // console.log(error.response.data.error);
+
   // const { message } = error
   // console.log(response.data.error);
 
@@ -32,7 +32,7 @@ function Login() {
     const { token } = auth
     console.log(auth);
     storage.setItem("token", token);
-    token && navigate('/')
+    token && navigate('/tenetur')
     setEmail('')
     setPassword('')
   }, [auth, navigate, storage])

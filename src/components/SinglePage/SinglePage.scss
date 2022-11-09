@@ -1,0 +1,94 @@
+.singlePage-section {
+	padding-top: 80px;
+	padding-bottom: 96px;
+	.singlePage__like-wrapper {
+		div {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+			&:last-child {
+				margin-top: 50px;
+			}
+			span {
+				font-weight: 300;
+				font-size: 14px;
+				line-height: 18px;
+				text-align: center;
+				color: #000000;
+			}
+		}
+	}
+	.singlePage__body {
+		max-width: 734px;
+		width: 100%;
+		img {
+			margin-bottom: 30px;
+		}
+	}
+
+	.singlePage {
+		padding-left: 90px;
+		display: flex;
+		gap: 128px;
+	}
+	.singlePage__top-text {
+		padding-bottom: 24px;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 14px;
+		color: #777777;
+	}
+	.singlePage__title {
+		padding-bottom: 25px;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 36px;
+		color: #474747;
+	}
+	.singlePage__decsription {
+		margin-bottom: 20px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 32px;
+		color: #474747;
+	}
+	.singlePage__time-wrapper {
+		padding-bottom: 45px;
+		display: flex;
+		gap: 42px;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		color: #777777;
+		time {
+			position: relative;
+			&::after {
+				content: '';
+				width: 20px;
+				display: inline-block;
+				position: absolute;
+				top: 7px;
+				right: -19px;
+				border: 1px solid #d1d1d1;
+				transform: rotate(90deg);
+			}
+		}
+		span {
+			position: relative;
+			&::before {
+				content: url('../../assets/img/clock.svg');
+				position: absolute;
+				top: -2px;
+				left: -25px;
+			}
+		}
+	}
+	.singlePage__main-text {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 32px;
+		color: #474747;
+	}
+}
