@@ -24,6 +24,7 @@
 		max-width: 734px;
 		width: 100%;
 		img {
+			width: 100%;
 			margin-bottom: 30px;
 		}
 	}
@@ -90,5 +91,17 @@
 		font-size: 16px;
 		line-height: 32px;
 		color: #474747;
+	}
+}
+
+@media only screen and (max-width: 850px) {
+	.singlePage-section {
+		padding-bottom: 50px;
+	}
+	.singlePage {
+		padding-left: 0 !important;
+	}
+	.singlePage__like-wrapper {
+		display: none;
 	}
 }
