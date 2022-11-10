@@ -15,7 +15,6 @@ function SinglePage() {
   const [dataId, setDataId] = useState(id)
   const moreLikeDatas = allDatas.slice(0, 3)
   const datas = allDatas[dataId]
-
   return (
     <>
       <Header />

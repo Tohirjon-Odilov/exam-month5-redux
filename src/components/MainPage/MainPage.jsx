@@ -17,6 +17,10 @@ function MainPage() {
 
   useEffect(() => {
     switch (cates) {
+      case "/": {
+        setParams(1)
+        break
+      }
       case "tenetur": {
         setParams(1)
         break

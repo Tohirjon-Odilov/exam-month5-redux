@@ -5,7 +5,8 @@ const generalDataSlice = createSlice({
   initialState: {
     categories: [],
     allDatas: [],
-    cates: 'tenetur',
+    cates: '/',
+    searched: []
   },
   reducers: {
     category: (state, action) => {
@@ -16,9 +17,12 @@ const generalDataSlice = createSlice({
     },
     cate: (state, action) => {
       state.cates = action.payload
+    },
+    setSearch: (state, action) => {
+      state.searched = action.payload
     }
   }
 })
 
-export const { category, allData, cate } = generalDataSlice.actions
+export const { category, allData, cate, setSearch } = generalDataSlice.actions
 export default generalDataSlice.reducer

@@ -1,17 +1,22 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import search from './../../assets/img/search.svg'
 
 
 function MyInput({ ...props }) {
   const { className, isOn } = props
-  const value = useRef()
-  useEffect(() => {
-    // console.log(value.current.value);
-  }, [])
+  const [inputValue, setInputValue] = useState()
+
+  const handleClick = ((value) => {
+    setInputValue(value)
+    inputValue.length + 1 && isOn(value)
+  })
+
+  console.log('first')
+
   return (
     <>
       <form className={className}>
-        <input type="search" ref={value} onClick={() => isOn(prev => !prev)} required placeholder="Search" />
+        <input type="search" onChange={(e) => handleClick(e.target.value)} required placeholder="Search" />
         <button type="submit"><img src={search} alt="search" /></button>
       </form>
     </>

@@ -14,10 +14,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Protected />}>
-          <Route index element={<MainPage />} />
+          {/* <Route path="/" element={<MainPage />} /> */}
           <Route path={`/${cates}`} element={<MainPage />} />
           <Route path={`${cates}/:categoryId/:id`} element={<SinglePage />} />
-          {/* <Route path={`${cates}/:categoryId/:id/:id`} element={<SinglePage />} /> */}
         </Route>
         <Route path="/logout" element={<Login />} />
         <Route path="*" element={<NotFound />} />

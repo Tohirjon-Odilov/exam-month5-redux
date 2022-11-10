@@ -6,13 +6,49 @@
 		padding: 16px 17px;
 		max-width: 350px;
 		width: 100%;
+		min-height: 100px;
 		position: absolute;
 		top: 100px;
 		right: 0;
-		height: 436px;
+		// height: 436px;
 		background: #ffffff;
 		box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.25);
 		margin-right: 120px;
+	}
+	.modal__title {
+		margin-bottom: 11px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 21px;
+		color: #474747;
+	}
+	.time__wrapper {
+		margin-bottom: 10px;
+		display: flex;
+		justify-content: space-between;
+
+		h4 {
+			font-weight: 500;
+			font-size: 12px;
+			line-height: 16px;
+			color: #474747;
+		}
+		span {
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 16px;
+			color: #777777;
+		}
+	}
+	.modal__body {
+		padding-bottom: 10px;
+		border-bottom: solid 1px #474747;
+		p {
+			font-weight: 500;
+			font-size: 12px;
+			line-height: 16px;
+			color: #474747;
+		}
 	}
 }
 

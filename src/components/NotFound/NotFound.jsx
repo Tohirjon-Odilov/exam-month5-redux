@@ -3,9 +3,11 @@ import Header from "../Header/Header"
 import './NotFound.scss'
 import notFound from './../../assets/img/404.png'
 import right from './../../assets/img/arrowright.svg'
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 function NotFound() {
+  console.log(useParams())
+
   return (<>
     <Header />
     <section className="site-notFound">
