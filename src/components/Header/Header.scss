@@ -49,11 +49,6 @@
 			text-transform: capitalize;
 			color: #9a9a9a;
 		}
-		li {
-			&:last-child {
-				display: none !important;
-			}
-		}
 	}
 }
 
@@ -130,7 +125,6 @@ form {
 			font-size: 20px;
 			line-height: 26px;
 			text-transform: uppercase;
-
 			color: #9a9a9a;
 		}
 	}

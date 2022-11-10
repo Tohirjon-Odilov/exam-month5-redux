@@ -41,6 +41,10 @@
 	.post__title {
 		max-width: 544px;
 		width: 100%;
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+		}
 		h4 {
 			padding-bottom: 15px;
 			font-weight: 400;
@@ -72,14 +76,13 @@
 		}
 	}
 	.content__pagenation {
-		// height: 32px;
 		display: flex;
 		justify-content: flex-end;
 		text-align: center;
 		padding: 3px 0px;
 		margin-bottom: 130px;
 
-		p {
+		div {
 			display: flex;
 			flex-direction: row;
 			text-align: center;
@@ -87,7 +90,8 @@
 			align-items: center;
 			gap: 10px;
 
-			span {
+			a {
+				color: black;
 				cursor: pointer;
 				&:hover {
 					color: #ffba9d;

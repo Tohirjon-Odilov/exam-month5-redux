@@ -8,7 +8,6 @@ import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
 import * as dayjs from 'dayjs'
 import { Link } from "react-router-dom"
-import Data from "../../redux/Data"
 
 function MainPage() {
   const { allDatas, cates, categories } = useSelector((state) => state.generalData)
@@ -39,7 +38,6 @@ function MainPage() {
       }
     }
   }, [cates])
-
   useEffect(() => {
     axios.get(`/category/${param}/posts`)
       .then((response) => dispatch(allData(response.data)))
@@ -47,10 +45,6 @@ function MainPage() {
         throw Error(err)
       })
   }, [dispatch, param])
-  // console.log("first", Data)
-
-
-  // console.log(allDatas.length && allDatas[0].id);
 
   return (
     <>
@@ -73,8 +67,6 @@ function MainPage() {
                     <Link to={`${data.categoryId}/${index}`}>
                       <h4>
                         {data.title}
-                        {" "}
-                        {data.id}
                       </h4>
                       <p>
                         {data.description}
@@ -90,13 +82,13 @@ function MainPage() {
             </div>
           </div>
           <div className="content__pagenation">
-            <p>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
-            </p>
+            <div>
+              <a href="/" >1</a>
+              <a href="/" >2</a>
+              <a href="/" >3</a>
+              <a href="/" >4</a>
+              <a href="/" >5</a>
+            </div>
           </div>
         </div>
       </section>

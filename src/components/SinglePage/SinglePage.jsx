@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SinglePage.scss'
 import { useSelector } from "react-redux"
 import Footer from "../Footer/Footer"
@@ -10,47 +10,72 @@ import { useParams } from "react-router-dom"
 
 
 function SinglePage() {
-  const { allDatas, cates, categories } = useSelector((state) => state.generalData)
-  const { categoryId, id } = useParams()
+  const { allDatas, cates } = useSelector((state) => state.generalData)
+  const { id } = useParams()
+  const [dataId, setDataId] = useState(id)
+  const moreLikeDatas = allDatas.slice(0, 3)
+  const datas = allDatas[dataId]
 
-  console.log(allDatas[id], categoryId);
   return (
     <>
       <Header />
       <section className="singlePage-section">
         <div className="container">
-          <div className="singlePage">
-            <div className="singlePage__like-wrapper">
-              <div>
-                <img src={clap} alt='clap' />
-                <span>{allDatas[id].likes}</span>
+          {
+            datas && <div className="singlePage">
+              <div className="singlePage__like-wrapper">
+                <div>
+                  <img src={clap} alt='clap' />
+                  <span>{datas?.likes}</span>
+                </div>
+                <div>
+                  <img src={share} alt='share' />
+                  <span>{datas?.shares}</span>
+                </div>
               </div>
-              <div>
-                <img src={share} alt='share' />
-                <span>{allDatas[id].shares}</span>
-              </div>
-            </div>
-            <div className="singlePage__body">
-              <p className="singlePage__top-text">
-                {cates}
-              </p>
-              <h3 className="singlePage__title">
-                {allDatas[id].title}
-              </h3>
-              <p className="singlePage__decsription">
-                {allDatas[id].description}
-              </p>
-              <div className="singlePage__time-wrapper">
-                <time>{`${dayjs(allDatas[id].createdAt).format('MMMM DD.YYYY')}`}</time>
-                <span>{allDatas[id].readTime} minutes read</span>
-              </div>
-              <img src={allDatas[id].image} alt={allDatas[id].title} />
-              <div className="singlePage__main-text">
-                {allDatas[id].content}
-              </div>
-            </div>
+              <div className="singlePage__body">
+                <p className="singlePage__top-text">
+                  {cates}
+                </p>
+                <h3 className="singlePage__title">
+                  {datas?.title}
+                </h3>
+                <p className="singlePage__decsription">
+                  {datas?.description}
+                </p>
+                <div className="singlePage__time-wrapper">
+                  <time>{`${dayjs(datas.createdAt).format('MMMM DD.YYYY')}`}</time>
+                  <span>{datas?.readTime} minutes read</span>
+                </div>
+                <img src={datas?.image} alt={datas?.title} />
+                <div className="singlePage__main-text">
+                  {datas?.content}
+                </div>
 
-          </div>
+                <h3 className="last-wrapper__title">More like this</h3>
+
+                {moreLikeDatas.map(data => (
+                  <div className="singlePage__last-wrapper" key={data.id}>
+                    <div className="date__wrapper">
+                      <time>{`${dayjs(data.createdAt).format('MMMM DD.YYYY')}`}</time>
+                      <span>{cates}</span>
+                    </div>
+                    <div onClick={() => setDataId(data.id)} className="singlePage__content-wrapper">
+                      <h4>
+                        {data.title}
+                      </h4>
+                      <p className="singlePage__main-text">
+                        {data.description}
+                      </p>
+                    </div>
+                    <span className="singlePage__time">
+                      {data.readTime} minutes read
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          }
         </div>
       </section>
       <Footer />

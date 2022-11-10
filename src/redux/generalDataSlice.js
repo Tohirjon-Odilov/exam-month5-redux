@@ -5,7 +5,7 @@ const generalDataSlice = createSlice({
   initialState: {
     categories: [],
     allDatas: [],
-    cates: 'tenetur'
+    cates: 'tenetur',
   },
   reducers: {
     category: (state, action) => {

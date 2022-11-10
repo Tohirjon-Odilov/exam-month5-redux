@@ -19,12 +19,11 @@ function MyList(props) {
     dispatch(cate(data))
   }
 
-
   return (
     <>
       <ul {...props}>
         {categories.length > 0 &&
-          categories.map(user => <li key={user.id}>
+          categories.slice(0, 4).map(user => <li key={user.id}>
             <Link to={`/${user.name}`} onClick={() => handleClick(user.name)}>{user.name}</Link>
           </li>)
         }
