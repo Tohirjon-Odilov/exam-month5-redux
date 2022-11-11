@@ -6,7 +6,7 @@ const generalDataSlice = createSlice({
     categories: [],
     allDatas: [],
     cates: '/',
-    searched: []
+    searched: [],
   },
   reducers: {
     category: (state, action) => {

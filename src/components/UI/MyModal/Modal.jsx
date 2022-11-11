@@ -22,7 +22,7 @@ function Modal(isOn) {
       <div className="modal-wrapper">
         <div className="modal">
           <h3 className="modal__title">Natijalar</h3>
-          {search(allDatas).map((data, index) => (
+          {search.length > 0 && search(allDatas).map((data, index) => (
             <div key={index} className="modal__body">
               <Link to={`/${cates}/${data.categoryId}/${index}`} >
                 <div className="time__wrapper">

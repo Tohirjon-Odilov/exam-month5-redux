@@ -53,6 +53,7 @@ function SinglePage() {
                 </div>
 
                 <h3 className="last-wrapper__title">More like this</h3>
+
                 {moreLikeDatas.map((data) => (
                   <div className="singlePage__last-wrapper" key={data.id}>
                     <div className="date__wrapper">

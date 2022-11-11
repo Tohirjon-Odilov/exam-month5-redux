@@ -49,16 +49,18 @@
 			text-transform: capitalize;
 			color: #9a9a9a;
 		}
+		li {
+			&:active,
+			&:hover {
+				// padding-bottom: 10px;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 21px;
+				color: #3d3d3d;
+				border-bottom: 2px solid #777777;
+			}
+		}
 	}
-}
-
-.active {
-	padding-bottom: 10px;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 21px;
-	color: #3d3d3d;
-	border-bottom: 2px solid #777777;
 }
 
 form {

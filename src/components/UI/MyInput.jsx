@@ -5,7 +5,6 @@ import search from './../../assets/img/search.svg'
 
 function MyInput({ ...props }) {
   const dispatch = useDispatch()
-
   const { className, isOn } = props
   const [inputValue, setInputValue] = useState()
 

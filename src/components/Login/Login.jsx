@@ -18,7 +18,6 @@ function Login() {
 
   useEffect(() => {
     const { token } = auth
-    console.log(auth);
     storage.setItem("token", token);
     token && navigate('/tenetur')
     setEmail('')
