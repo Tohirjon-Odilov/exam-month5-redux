@@ -17,8 +17,6 @@ function Modal(isOn) {
     )))
   }
 
-  console.log("data", search);
-
   if (isOn.isOn) {
     return createPortal(
       <div className="modal-wrapper">
@@ -35,7 +33,6 @@ function Modal(isOn) {
               </Link>
             </div>
           ))}
-          {/* {search} */}
         </div>
       </div>,
       document.body

@@ -7,7 +7,6 @@ import { category, cate } from "../../redux/generalDataSlice"
 function MyList(props) {
   const { categories } = useSelector((state) => state.generalData)
   const dispatch = useDispatch()
-
   useEffect(() => {
     axios.get("/category/")
       .then((response) => dispatch(category(response.data)))

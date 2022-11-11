@@ -3,7 +3,9 @@ import "./Loading.scss"
 
 function Loading() {
   return (
-    <div class="shapes-5"></div>
+    <div className="loading-wrapper">
+      <div className="loading">Loading&#8230;</div>
+    </div>
   )
 }
 

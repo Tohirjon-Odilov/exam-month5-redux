@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
 import * as dayjs from 'dayjs'
 import { Link, useNavigate, useParams } from "react-router-dom"
+import Loading from "../UI/Loading/Loading"
 
 function MainPage() {
   const { allDatas, categories } = useSelector((state) => state.generalData)
@@ -16,6 +17,7 @@ function MainPage() {
   const category = categories.map((data) => (data.name))
   const { url } = useParams()
   const navigate = useNavigate()
+  const [load, setLoad] = useState(true)
 
   useEffect(() => {
     switch (url) {
@@ -45,13 +47,19 @@ function MainPage() {
       }
     }
   }, [url, navigate])
+
+
   useEffect(() => {
     axios.get(`/category/${param}/posts`)
       .then((response) => dispatch(allData(response.data)))
       .catch(err => {
         throw Error(err)
       })
-  }, [dispatch, param])
+    allDatas.length > 0 && setLoad(false)
+
+  }, [dispatch, param, allDatas])
+
+
 
   return (
     <>
@@ -64,6 +72,7 @@ function MainPage() {
               <h3 className="posts__title">
                 Recent Posts
               </h3>
+              {load && <Loading />}
               {allDatas.length > 0 &&
                 allDatas.map((data, index) => <div className="posts__wrapper" key={index}>
                   <div className="date__wrapper">

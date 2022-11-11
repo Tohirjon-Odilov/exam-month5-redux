@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux"
 import { setSearch } from "../../redux/generalDataSlice"
 import search from './../../assets/img/search.svg'
 
-
 function MyInput({ ...props }) {
   const dispatch = useDispatch()
 
@@ -16,11 +15,15 @@ function MyInput({ ...props }) {
     dispatch(setSearch(event.toLowerCase()))
   })
 
+  const click = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <>
-      <form className={className}>
+      <form onClick={click} className={className}>
         <input type="search" onChange={(e) => handleClick(e.target.value)} placeholder="Search" />
-        <button type="submit"><img src={search} alt="search" /></button>
+        <button onClick={(e) => handleClick(e.target.name)} type="submit"><img src={search} alt="search" /></button>
       </form>
     </>
 
