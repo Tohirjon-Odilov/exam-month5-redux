@@ -40,7 +40,7 @@ function Header() {
           {<MyList className={toggle ? 'none' : 'block'} />}
           {<img onClick={handleClick} src={toggle ? menu : close} alt="menu" />}
         </header>
-        <MyInput className={"mobile-input"} />
+        <MyInput isOn={modal} className={"mobile-input"} />
       </div>
     </section>
   )

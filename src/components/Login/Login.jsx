@@ -4,29 +4,17 @@ import logo from './../../assets/img/circle b.svg'
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
 
-//      eve.holt@reqres.in
-//      cityslicka
-// https://reqres.in/api/login
-
 function Login() {
   const storage = window.localStorage;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setEmailPassword, error] = useLogin();
-  const [loading, setLoading] = useState(false);
-  // console.log(error.response.data.error);
-
-  // const { message } = error
-  // console.log(response.data.error);
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setEmailPassword(email, password);
-    setLoading(true);
   };
-
-  console.log(error);
 
   useEffect(() => {
     const { token } = auth
@@ -37,38 +25,9 @@ function Login() {
     setPassword('')
   }, [auth, navigate, storage])
 
-  // useEffect(() => {
-  //   const { status, message, token } = auth;
-
-  //   if (status === 200) {
-  //     setLoading(false);
-
-  //     if (error.state) {
-  //       setError({
-  //         state: false,
-  //         msg: "",
-  //       });
-  //     }
-
-
-  //   }
-
-  //   if (status === 404) {
-  //     setLoading(false);
-  //     setError({
-  //       state: true,
-  //       msg: message,
-  //     });
-  //     console.log('staus');
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [auth]);
-
   return (
     <section className="site-login">
       <div className="container">
-        {loading && <h3>Loading...</h3>}
-        {error.message && <h3 className={"err"}>Error: {error.message}</h3>}
         <header className="login_header">
           <img src={logo} alt="Bobur logo" width={58} height={58} />
           <strong>BoburBlog</strong>
@@ -77,8 +36,9 @@ function Login() {
           <h3>
             Sahifamga xush kelibsiz! Pulli kontentni o’qish uchun tizimga kiring.
           </h3>
-          <form>
+          <form className={error.message && "err"}>
             <span>Login</span>
+            {error.message && <h5 className={"err"}>Error: {error.message}</h5>}
             <input
               type="email"
               placeholder="login"

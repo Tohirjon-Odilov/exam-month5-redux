@@ -41,17 +41,21 @@
 		flex-direction: column;
 		span {
 			display: inline-block;
-			margin-bottom: 36px;
+			margin-bottom: 15px;
 			font-weight: 700;
 			font-size: 40px;
 			line-height: 53px;
 			color: #000000;
 		}
+		h5 {
+			margin-bottom: 10px;
+			color: red;
+		}
 		input {
 			margin-bottom: 24px;
 			padding: 12px 0 12px 14px;
 			width: 100%;
-			border: none;
+			border: solid 1px transparent;
 			background: #f4f4f4;
 			border-radius: 3px;
 			&::placeholder {
@@ -73,6 +77,11 @@
 			line-height: 18px;
 			text-align: center;
 			color: #ffffff;
+		}
+	}
+	.err {
+		input {
+			border: solid red 1px !important;
 		}
 	}
 }
