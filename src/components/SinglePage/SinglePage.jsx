@@ -6,7 +6,7 @@ import Header from "../Header/Header"
 import clap from "../../assets/img/clap.svg"
 import share from "../../assets/img/share.svg"
 import * as dayjs from 'dayjs'
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 
 function SinglePage() {
@@ -15,6 +15,10 @@ function SinglePage() {
   const [dataId, setDataId] = useState(id)
   const moreLikeDatas = allDatas.slice(0, 3)
   const datas = allDatas[dataId]
+  const navigate = useNavigate()
+  const { url } = useParams()
+
+  if (url !== cates) navigate('/notFound')
 
   return (
     <>
