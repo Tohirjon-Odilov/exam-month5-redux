@@ -7,7 +7,7 @@ function Protected() {
   if (token === "QpwL5tke4Pnpja7X4") {
     return <Outlet />;
   } else {
-    return <Navigate to={"/logdout"} />
+    return <Navigate to={"/logout"} />
   }
 }
 
