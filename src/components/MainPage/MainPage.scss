@@ -90,7 +90,11 @@
 			align-items: center;
 			gap: 10px;
 
-			a {
+			button {
+				padding: 2px;
+				outline: none;
+				background-color: #fff;
+				border: none;
 				color: black;
 				cursor: pointer;
 				&:hover {

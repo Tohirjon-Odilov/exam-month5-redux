@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
+import { useDispatch } from "react-redux"
+import { setSearch } from "../../redux/generalDataSlice"
 import search from './../../assets/img/search.svg'
 
 
 function MyInput({ ...props }) {
+  const dispatch = useDispatch()
+
   const { className, isOn } = props
   const [inputValue, setInputValue] = useState()
 
-  const handleClick = ((value) => {
-    setInputValue(value)
-    inputValue.length + 1 && isOn(value)
+  const handleClick = ((event) => {
+    setInputValue(event)
+    inputValue?.length + 1 && isOn(event)
+    dispatch(setSearch(event.toLowerCase()))
   })
-
-  console.log('first')
 
   return (
     <>
       <form className={className}>
-        <input type="search" onChange={(e) => handleClick(e.target.value)} required placeholder="Search" />
+        <input type="search" onChange={(e) => handleClick(e.target.value)} placeholder="Search" />
         <button type="submit"><img src={search} alt="search" /></button>
       </form>
     </>

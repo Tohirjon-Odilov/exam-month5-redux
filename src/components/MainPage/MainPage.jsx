@@ -7,17 +7,20 @@ import Aside from "../Aside/Aside"
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
 import * as dayjs from 'dayjs'
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 function MainPage() {
-  const { allDatas, cates, categories } = useSelector((state) => state.generalData)
+  const { allDatas, categories } = useSelector((state) => state.generalData)
   const [param, setParams] = useState(1)
   const dispatch = useDispatch()
   const category = categories.map((data) => (data.name))
+  const { url } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    switch (cates) {
-      case "/": {
+    switch (url) {
+      case undefined || 'NotFound': {
+        navigate('/tenetur')
         setParams(1)
         break
       }
@@ -38,10 +41,10 @@ function MainPage() {
         break
       }
       default: {
-        setParams(1)
+        navigate('NotFound')
       }
     }
-  }, [cates])
+  }, [url, navigate])
   useEffect(() => {
     axios.get(`/category/${param}/posts`)
       .then((response) => dispatch(allData(response.data)))
@@ -87,11 +90,11 @@ function MainPage() {
           </div>
           <div className="content__pagenation">
             <div>
-              <a href="/" >1</a>
-              <a href="/" >2</a>
-              <a href="/" >3</a>
-              <a href="/" >4</a>
-              <a href="/" >5</a>
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
             </div>
           </div>
         </div>

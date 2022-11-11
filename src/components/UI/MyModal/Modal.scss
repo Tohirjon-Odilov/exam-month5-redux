@@ -4,7 +4,7 @@
 	justify-content: flex-end;
 	.modal {
 		padding: 16px 17px;
-		max-width: 350px;
+		max-width: 400px;
 		width: 100%;
 		min-height: 100px;
 		position: absolute;
@@ -29,22 +29,32 @@
 
 		h4 {
 			font-weight: 500;
-			font-size: 12px;
+			font-size: 11px;
 			line-height: 16px;
 			color: #474747;
 		}
-		span {
+		time {
 			font-weight: 400;
-			font-size: 12px;
+			font-size: 11px;
 			line-height: 16px;
 			color: #777777;
 		}
 	}
 	.modal__body {
+		margin-bottom: 10px;
 		padding-bottom: 10px;
 		border-bottom: solid 1px #474747;
+		&:hover {
+			p {
+				text-decoration: underline;
+			}
+		}
 		p {
-			font-weight: 500;
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-weight: 400;
 			font-size: 12px;
 			line-height: 16px;
 			color: #474747;

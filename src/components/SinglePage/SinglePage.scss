@@ -65,6 +65,7 @@
 		color: #777777;
 		time {
 			position: relative;
+			z-index: -1;
 			&::after {
 				content: '';
 				width: 20px;
@@ -78,6 +79,7 @@
 		}
 		span {
 			position: relative;
+			z-index: -1;
 			&::before {
 				content: url('../../assets/img/clock.svg');
 				position: absolute;

@@ -6,7 +6,7 @@ import Header from "../Header/Header"
 import clap from "../../assets/img/clap.svg"
 import share from "../../assets/img/share.svg"
 import * as dayjs from 'dayjs'
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 
 function SinglePage() {
@@ -15,6 +15,7 @@ function SinglePage() {
   const [dataId, setDataId] = useState(id)
   const moreLikeDatas = allDatas.slice(0, 3)
   const datas = allDatas[dataId]
+
   return (
     <>
       <Header />
@@ -52,20 +53,21 @@ function SinglePage() {
                 </div>
 
                 <h3 className="last-wrapper__title">More like this</h3>
-
-                {moreLikeDatas.map(data => (
+                {moreLikeDatas.map((data) => (
                   <div className="singlePage__last-wrapper" key={data.id}>
                     <div className="date__wrapper">
                       <time>{`${dayjs(data.createdAt).format('MMMM DD.YYYY')}`}</time>
                       <span>{cates}</span>
                     </div>
                     <div onClick={() => setDataId(data.id)} className="singlePage__content-wrapper">
-                      <h4>
-                        {data.title}
-                      </h4>
-                      <p className="singlePage__main-text">
-                        {data.description}
-                      </p>
+                      <Link to={`/${cates}/${data.categoryId}/${dataId}`}>
+                        <h4>
+                          {data.title}
+                        </h4>
+                        <p className="singlePage__main-text">
+                          {data.description}
+                        </p>
+                      </Link>
                     </div>
                     <span className="singlePage__time">
                       {data.readTime} minutes read
