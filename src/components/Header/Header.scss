@@ -48,16 +48,16 @@
 			line-height: 21px;
 			text-transform: capitalize;
 			color: #9a9a9a;
+			border-bottom: 1px solid transparent;
 		}
 		li {
 			&:active,
 			&:hover {
-				// padding-bottom: 10px;
 				font-weight: 400;
 				font-size: 16px;
 				line-height: 21px;
 				color: #3d3d3d;
-				border-bottom: 2px solid #777777;
+				border-bottom: 1px solid #777777;
 			}
 		}
 	}
