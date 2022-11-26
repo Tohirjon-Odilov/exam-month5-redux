@@ -1,9 +1,9 @@
 .site-header {
   min-height: 58px;
-  padding: 26px 0;
+  padding: 10px 0;
   background-color: #fff;
   position: fixed;
-  box-shadow: 0px 6px 21px 6px #a4a4a4;
+  box-shadow: 0px 1px 10px 1px #a4a4a4;
   width: 100%;
   margin: 0 auto;
 }
@@ -48,25 +48,24 @@
     justify-content: center;
     gap: 30px;
     a {
-      padding-bottom: 10px;
+      padding-bottom: 5px;
       font-weight: 400;
       font-size: 16px;
       line-height: 21px;
       text-transform: capitalize;
       color: #9a9a9a;
-      border-bottom: 1px solid transparent;
-    }
-    li {
-      &:active,
       &:hover {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
         color: #3d3d3d;
-        border-bottom: 1px solid #777777;
       }
     }
   }
+}
+.active {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #3d3d3d !important;
+  border-bottom: 1px solid #777777;
 }
 
 form {
@@ -122,13 +121,13 @@ form {
   }
   .block {
     padding-top: 128px;
-    height: 80vh;
+    height: 90vh;
     width: 100%;
     display: flex !important;
     justify-content: flex-start !important;
     flex-direction: column;
     position: fixed;
-    top: 100px;
+    top: 78px;
     left: 0;
     background: white;
   }
@@ -146,7 +145,7 @@ form {
     display: none !important;
   }
   .mobile-input {
-    padding-top: 26px;
+    padding-top: 10px;
     display: flex !important;
     width: 100%;
     input {
