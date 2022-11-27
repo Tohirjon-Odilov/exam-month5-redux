@@ -81,7 +81,7 @@ function MainPage() {
                       <span>{category[param - 1]}</span>
                     </div>
                     <div className="post__title">
-                      <Link to={`${data.categoryId}/${index}`}>
+                      <Link to={`${data.categoryId}/${data.id}`}>
                         <h4>{data.title}</h4>
                         <p>{data.description}</p>
                       </Link>

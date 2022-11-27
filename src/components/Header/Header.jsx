@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import MyInput from "../UI/MyInput";
@@ -15,6 +15,7 @@ function Header() {
   const [toggle, setToggle] = useState(true);
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const [navbar, setNavbar] = useState(false);
   const handleCategory = (data) => {
     dispatch(cate(data));
   };
@@ -22,8 +23,17 @@ function Header() {
     setToggle((prev) => !prev);
   };
 
+  const changeNavbarBg = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarBg);
+
   return (
-    <section className="site-header">
+    <section className={navbar ? "site-header shadow" : "site-header"}>
       <div className="container">
         <header className="header">
           <div className="link__wrapper">
