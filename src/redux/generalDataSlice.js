@@ -7,7 +7,6 @@ const generalDataSlice = createSlice({
     allDatas: [],
     cates: "/",
     searched: [],
-    empty: "",
   },
   reducers: {
     category: (state, action) => {
@@ -21,9 +20,6 @@ const generalDataSlice = createSlice({
     },
     setSearch: (state, action) => {
       state.searched = action.payload;
-    },
-    setEmpty: (state, action) => {
-      state.empty = action.payload;
     },
   },
 });

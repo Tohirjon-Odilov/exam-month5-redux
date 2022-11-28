@@ -6,8 +6,10 @@ import clap from "../../assets/img/clap.svg";
 import share from "../../assets/img/share.svg";
 import * as dayjs from "dayjs";
 import { Link, useParams } from "react-router-dom";
-import axios from "../../api/axios";
+import axios from "../../lib/axios";
 import Loading from "../UI/Loading/Loading";
+import ScrollToTop from "react-scroll-to-top";
+import SpecialCharacter from "../../lib/SpecialCharacter";
 
 function SinglePage() {
   const { id, categoryId, url } = useParams();
@@ -27,26 +29,23 @@ function SinglePage() {
         throw Error(err);
       });
   }, [categoryId]);
+
   useEffect(() => {
     response === 200 && setLoad(false);
   }, [response]);
 
-  useEffect(() => {
-    if (window.scrollY === "20") {
-      console.log(window.scrollY);
-    }
-  }, []);
-
-  const data = datas.find((data) => data.id === id);
-  const top = () => {
-    if (window.scrollY > 0) window.screenY = 0;
-    console.log(window.navigator);
+  const data = datas.find(
+    (data) => SpecialCharacter(data.title.toLowerCase()) === id
+  );
+  const toTop = () => {
+    window.scrollTo(0, 0);
   };
 
   return (
     <>
       <Header />
       <section className="singlePage-section">
+        <ScrollToTop smooth top={200} />
         <div className="container">
           {load && <Loading />}
           {response && (
@@ -77,7 +76,7 @@ function SinglePage() {
                 <h3 className="last-wrapper__title">More like this</h3>
 
                 {moreLikeDatas &&
-                  moreLikeDatas.map((data, index) => (
+                  moreLikeDatas.map((data) => (
                     <div className="singlePage__last-wrapper" key={data.id}>
                       <div className="date__wrapper">
                         <time>{`${dayjs(data.createdAt).format(
@@ -87,8 +86,10 @@ function SinglePage() {
                       </div>
                       <div className="singlePage__content-wrapper">
                         <Link
-                          onClick={top}
-                          to={`/${url}/${data.categoryId}/${data.id}`}
+                          onClick={toTop}
+                          to={`/${url}/${data.categoryId}/${SpecialCharacter(
+                            data.title.toLowerCase()
+                          )}`}
                         >
                           <h4>{data.title}</h4>
                           <p className="singlePage__main-text">

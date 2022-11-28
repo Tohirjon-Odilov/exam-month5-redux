@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allData } from "../../redux/generalDataSlice";
-import axios from "../../api/axios";
+import axios from "../../lib/axios";
 import "./MainPage.scss";
 import Aside from "../Aside/Aside";
 import Footer from "../Footer/Footer";
@@ -9,6 +9,8 @@ import Header from "../Header/Header";
 import * as dayjs from "dayjs";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loading from "../UI/Loading/Loading";
+import ScrollToTop from "react-scroll-to-top";
+import SpecialCharacter from "../../lib/SpecialCharacter";
 
 function MainPage() {
   const { allDatas, categories } = useSelector((state) => state.generalData);
@@ -65,6 +67,7 @@ function MainPage() {
     <>
       <Header />
       <section className="data-section">
+        <ScrollToTop smooth top={300} />
         <div className="container">
           <div className="data">
             <Aside />
@@ -81,7 +84,11 @@ function MainPage() {
                       <span>{category[param - 1]}</span>
                     </div>
                     <div className="post__title">
-                      <Link to={`${data.categoryId}/${data.id}`}>
+                      <Link
+                        to={`${data.categoryId}/${SpecialCharacter(
+                          data.title.toLowerCase()
+                        )}`}
+                      >
                         <h4>{data.title}</h4>
                         <p>{data.description}</p>
                       </Link>

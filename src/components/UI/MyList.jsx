@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import axios from "../../api/axios";
+import axios from "../../lib/axios";
 import { category, cate } from "../../redux/generalDataSlice";
 
 function MyList(props) {

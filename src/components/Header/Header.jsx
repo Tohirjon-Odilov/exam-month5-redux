@@ -39,7 +39,7 @@ function Header() {
           <div className="link__wrapper">
             <Link onClick={() => handleCategory("tenetur")} to={"/tenetur"}>
               <img src={logo} alt="Bobur logo" width={58} height={58} />
-              <strong>BoburBlog</strong>
+              <strong>MyBlog</strong>
             </Link>
           </div>
           <Wrapper className={"nav__wrapper"}>
