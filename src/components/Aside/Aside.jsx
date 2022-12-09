@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Aside.scss";
 import right from "./../../assets/img/arrowright.svg";
 import facebook from "./../../assets/img/facebook.svg";
@@ -7,21 +7,9 @@ import twitter from "./../../assets/img/twitter.svg";
 import linkdin from "./../../assets/img/linkdin.svg";
 
 function Aside() {
-  const [fixed, setFixed] = useState(false);
-
-  const fixedContent = () => {
-    if (window.scrollY >= 2865) {
-      setFixed(true);
-    } else if (window.scrollY <= 0) {
-      setFixed(false);
-    }
-  };
-
-  window.addEventListener("scroll", fixedContent);
-
   return (
     <div className="aside-wrapper">
-      <div className={fixed ? "aside" : "aside fixed"}>
+      <div className={"aside"}>
         <h4>What I do!</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
