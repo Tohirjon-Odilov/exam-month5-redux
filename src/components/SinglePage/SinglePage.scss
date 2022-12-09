@@ -19,6 +19,11 @@
         color: #000000;
       }
     }
+    .sticky {
+      position: sticky;
+      top: 212px;
+      z-index: -1;
+    }
   }
   .singlePage__body {
     max-width: 734px;

@@ -12,7 +12,7 @@ function Aside() {
   const fixedContent = () => {
     if (window.scrollY >= 2865) {
       setFixed(true);
-    } else if (window.scrollY <= 2865) {
+    } else if (window.scrollY <= 0) {
       setFixed(false);
     }
   };
@@ -21,7 +21,7 @@ function Aside() {
 
   return (
     <div className="aside-wrapper">
-      <div className={fixed ? "aside fixed" : "aside"}>
+      <div className={fixed ? "aside" : "aside fixed"}>
         <h4>What I do!</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer

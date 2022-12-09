@@ -51,13 +51,15 @@ function SinglePage() {
           {response && (
             <div className="singlePage">
               <div className="singlePage__like-wrapper">
-                <div>
-                  <img src={clap} alt="clap" />
-                  <span>{data.likes}</span>
-                </div>
-                <div>
-                  <img src={share} alt="share" />
-                  <span>{data.shares}</span>
+                <div className="sticky">
+                  <div>
+                    <img src={clap} alt="clap" />
+                    <span>{data.likes}</span>
+                  </div>
+                  <div>
+                    <img src={share} alt="share" />
+                    <span>{data.shares}</span>
+                  </div>
                 </div>
               </div>
               <div className="singlePage__body">

@@ -4,14 +4,12 @@
   margin-right: 55px;
   z-index: -1;
 }
-.fixed {
-  position: absolute !important;
-  bottom: -2690px !important;
-}
+
 .aside {
   width: 100%;
   max-width: 328px;
-  position: fixed;
+  position: sticky;
+  top: 165px;
   h4 {
     padding-bottom: 36px;
     font-weight: 400;
